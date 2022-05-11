@@ -48,3 +48,19 @@ class Shedule(models.Model):
 
     def __str__(self):
         return self.day
+
+
+class Session(models.Model):
+    title = models.CharField(max_length=122)
+    description = models.TextField()
+    date= models.DateTimeField()
+    time= models.CharField(max_length=33)
+    link= models.URLField()
+
+
+
+
+
+
+
+

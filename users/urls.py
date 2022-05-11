@@ -3,7 +3,9 @@ from .views import ( CustomAuthToken, LogoutView, StudentOnlyView, StudentSignup
 from . import views
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
-router.register(r'shedule', views.SheduleViewSet, basename='movie')
+router.register(r'shedule', views.SheduleViewSet, basename='shedule')
+router.register(r'session', views.SessionViewSet, basename='session')
+
 
 urlpatterns=[
     path('shedule/',include(router.urls)),

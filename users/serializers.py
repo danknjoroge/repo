@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from users.models import Shedule, User,Tm, Student
+from users.models import Session, Shedule, User,Tm, Student
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -62,4 +62,9 @@ class StudentSignupSerializer(serializers.ModelSerializer):
 class SheduleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shedule
+        fields = '__all__'
+
+class SessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Session
         fields = '__all__'
