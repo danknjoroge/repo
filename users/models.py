@@ -38,3 +38,13 @@ class Student(models.Model):
 
     def __str__(self):
         return str(self.course)
+
+
+
+class Shedule(models.Model):
+    day = models.CharField(max_length=250)
+    details = models.TextField()
+    time = models.CharField(max_length=350)
+
+    def __str__(self):
+        return self.day

@@ -1,10 +1,10 @@
 
 from django.http import request
-from rest_framework import generics, permissions, status
+from rest_framework import viewsets, generics, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from users.models import Tm
-from .serializers import TmSignupSerializer,StudentSignupSerializer, UserSerializer
+from users.models import Shedule, Tm
+from .serializers import SheduleSerializer, TmSignupSerializer,StudentSignupSerializer, UserSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.views import APIView
 from .permissions import IsTmUser, IsStudentUser
@@ -68,3 +68,9 @@ class TmOnlyView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+
+class SheduleViewSet(viewsets.ModelViewSet):
+    serializer_class = SheduleSerializer
+    queryset = Shedule.objects.all()

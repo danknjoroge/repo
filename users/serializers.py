@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from users.models import User,Tm, Student
+from users.models import Shedule, User,Tm, Student
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -57,3 +57,9 @@ class StudentSignupSerializer(serializers.ModelSerializer):
         user.save()
         Student.objects.create(user=user)
         return user
+
+
+class SheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shedule
+        fields = '__all__'

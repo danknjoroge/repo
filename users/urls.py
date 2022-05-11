@@ -1,7 +1,13 @@
-from django.urls import path
+from django.urls import include, path
 from .views import ( CustomAuthToken, LogoutView, StudentOnlyView, StudentSignupView, TmOnlyView, TmSignupView)
+from . import views
+from rest_framework.routers import DefaultRouter
+router = DefaultRouter()
+router.register(r'shedule', views.SheduleViewSet, basename='movie')
 
 urlpatterns=[
+    path('shedule/',include(router.urls)),
+
     path('signup/tm/', TmSignupView.as_view()),
     path('signup/student/', StudentSignupView.as_view()),
     path('login/', CustomAuthToken.as_view(), name='auth-token'),
