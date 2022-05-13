@@ -140,6 +140,7 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+CORS_ALLOW_ALL_ORIGINS=True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
